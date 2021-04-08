@@ -1,0 +1,77 @@
+2021/04/08 16:55:51 [INFO] Terraform version: 0.14.9  
+2021/04/08 16:55:51 [INFO] Go runtime version: go1.15.6
+2021/04/08 16:55:51 [INFO] CLI args: []string{"C:\\WINDOWS\\system32\\terraform.exe", "providers", "schema", "-json", "-no-color"}
+2021/04/08 16:55:51 [DEBUG] Attempting to open CLI config file: C:\Users\PrethiJeevakumar\AppData\Roaming\terraform.rc
+2021/04/08 16:55:51 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2021/04/08 16:55:51 [DEBUG] Using modified User-Agent: HashiCorp Terraform/0.14.9 (+https://www.terraform.io) HashiCorp-terraform-exec/0.13.0
+2021/04/08 16:55:51 [DEBUG] ignoring non-existing provider search directory terraform.d/plugins
+2021/04/08 16:55:51 [DEBUG] ignoring non-existing provider search directory C:\Users\PrethiJeevakumar\AppData\Roaming\terraform.d\plugins
+2021/04/08 16:55:51 [DEBUG] ignoring non-existing provider search directory C:\Users\PrethiJeevakumar\AppData\Roaming\HashiCorp\Terraform\plugins
+2021/04/08 16:55:51 [INFO] CLI command args: []string{"providers", "schema", "-json", "-no-color"}
+2021/04/08 16:55:51 [DEBUG] Using modified User-Agent: Terraform/0.14.9 HashiCorp-terraform-exec/0.13.0
+2021/04/08 16:55:51 [DEBUG] Using modified User-Agent: HashiCorp Terraform/0.14.9 (+https://www.terraform.io) HashiCorp-terraform-exec/0.13.0
+2021/04/08 16:55:51 [TRACE] Meta.Backend: no config given or present on disk, so returning nil config
+2021/04/08 16:55:51 [TRACE] Meta.Backend: backend has not previously been initialized in this working directory
+2021/04/08 16:55:51 [DEBUG] New state was assigned lineage "424dda72-5cf7-e282-dd0e-69b7410023cc"
+2021/04/08 16:55:51 [TRACE] Meta.Backend: using default local state only (no backend configuration, and no existing initialized backend)
+2021/04/08 16:55:51 [TRACE] Meta.Backend: instantiated backend of type <nil>
+2021/04/08 16:55:51 [TRACE] providercache.fillMetaCache: scanning directory .terraform\providers
+2021/04/08 16:55:51 [TRACE] getproviders.SearchLocalDirectory: .terraform\providers is a symlink to .terraform\providers
+2021/04/08 16:55:51 [TRACE] getproviders.SearchLocalDirectory: found registry.terraform.io/hashicorp/aws v3.35.0 for windows_amd64 at .terraform\providers\registry.terraform.io\hashicorp\aws\3.35.0\windows_amd64
+2021/04/08 16:55:51 [TRACE] providercache.fillMetaCache: including .terraform\providers\registry.terraform.io\hashicorp\aws\3.35.0\windows_amd64 as a candidate package for registry.terraform.io/hashicorp/aws 3.35.0
+2021/04/08 16:55:52 [DEBUG] checking for provisioner in "."
+2021/04/08 16:55:52 [DEBUG] checking for provisioner in "C:\\WINDOWS\\system32"
+2021/04/08 16:55:52 [INFO] Failed to read plugin lock file .terraform\plugins\windows_amd64\lock.json: open .terraform\plugins\windows_amd64\lock.json: The system cannot find the path specified.
+2021/04/08 16:55:52 [TRACE] Meta.Backend: backend <nil> does not support operations, so wrapping it in a local backend
+2021/04/08 16:55:52 [TRACE] backend/local: requesting state manager for workspace "default"
+2021/04/08 16:55:52 [TRACE] backend/local: state manager for workspace "default" will:
+ - read initial snapshot from terraform.tfstate
+ - write new snapshots to terraform.tfstate
+ - create any backup at terraform.tfstate.backup
+2021/04/08 16:55:52 [TRACE] backend/local: requesting state lock for workspace "default"
+2021/04/08 16:55:52 [TRACE] backend/local: reading remote state for workspace "default"
+2021/04/08 16:55:52 [TRACE] statemgr.Filesystem: reading initial snapshot from terraform.tfstate
+2021/04/08 16:55:52 [TRACE] statemgr.Filesystem: snapshot file has nil snapshot, but that's okay
+2021/04/08 16:55:52 [TRACE] statemgr.Filesystem: read nil snapshot
+2021/04/08 16:55:52 [DEBUG] backend/local: skipping refresh of managed resources
+2021/04/08 16:55:52 [TRACE] backend/local: retrieving local state snapshot for workspace "default"
+2021/04/08 16:55:52 [TRACE] backend/local: building context for current working directory
+2021/04/08 16:55:52 [TRACE] terraform.NewContext: starting
+2021/04/08 16:55:52 [TRACE] terraform.NewContext: loading provider schemas
+panic: called String on zero-value addrs.Provider
+
+goroutine 1 [running]:
+github.com/hashicorp/terraform/addrs.Provider.String(...)
+	/home/circleci/project/project/addrs/provider.go:50
+github.com/hashicorp/terraform/configs.(*Config).ProviderTypes.func1(0x1, 0x0, 0xc000866868)
+	/home/circleci/project/project/configs/config.go:349 +0x5ac
+sort.insertionSort_func(0xc000866918, 0xc0002cbd70, 0x0, 0x2)
+	/usr/local/go/src/sort/zfuncversion.go:12 +0xbb
+sort.quickSort_func(0xc000866918, 0xc0002cbd70, 0x0, 0x2, 0x4)
+	/usr/local/go/src/sort/zfuncversion.go:158 +0x20f
+sort.Slice(0x25bb040, 0xc0005cb3c0, 0xc000866918)
+	/usr/local/go/src/sort/slice.go:17 +0xfa
+github.com/hashicorp/terraform/configs.(*Config).ProviderTypes(0xc0000955f0, 0xc000866d00, 0x5de070, 0xc0002cbce0)
+	/home/circleci/project/project/configs/config.go:348 +0x2f1
+github.com/hashicorp/terraform/terraform.loadProviderSchemas(0xc0002cbcb0, 0xc0000955f0, 0x0, 0x2f1d880, 0xc0004e57c0, 0xc0000de030, 0x400f940, 0xc0000de000)
+	/home/circleci/project/project/terraform/schemas.go:173 +0x1d8
+github.com/hashicorp/terraform/terraform.LoadSchemas(0xc0000955f0, 0x0, 0x2f1d880, 0xc0004e57c0, 0x0, 0x1, 0x63e140)
+	/home/circleci/project/project/terraform/schemas.go:84 +0xcf
+github.com/hashicorp/terraform/terraform.NewContext(0xc000867708, 0x0, 0x0, 0xc000867600, 0x1)
+	/home/circleci/project/project/terraform/context.go:205 +0x2ea
+github.com/hashicorp/terraform/backend/local.(*Local).contextDirect(0xc000094340, 0xc00013ce00, 0xc0000955f0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xc0002cbb30, 0xc0005cabe0, ...)
+	/home/circleci/project/project/backend/local/backend_local.go:178 +0x305
+github.com/hashicorp/terraform/backend/local.(*Local).context(0xc000094340, 0xc00013ce00, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/home/circleci/project/project/backend/local/backend_local.go:111 +0xf18
+github.com/hashicorp/terraform/backend/local.(*Local).Context(0xc000094340, 0xc00013ce00, 0x0, 0x0, 0xc000094340, 0x1, 0x0, 0x0)
+	/home/circleci/project/project/backend/local/backend_local.go:33 +0x134
+github.com/hashicorp/terraform/command.(*ProvidersSchemaCommand).Run(0xc0002bb6c0, 0xc0000dc030, 0x1, 0x5, 0xc00057eb20)
+	/home/circleci/project/project/command/providers_schema.go:92 +0x75f
+github.com/mitchellh/cli.(*CLI).Run(0xc00069db80, 0xc00069db80, 0xc000867d48, 0x1)
+	/go/pkg/mod/github.com/mitchellh/cli@v1.1.0/cli.go:260 +0x1cf
+main.wrappedMain(0x0)
+	/home/circleci/project/project/main.go:304 +0xe85
+main.realMain(0x0)
+	/home/circleci/project/project/main.go:106 +0xf1
+main.main()
+	/home/circleci/project/project/main.go:42 +0x45
